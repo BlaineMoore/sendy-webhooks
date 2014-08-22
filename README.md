@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Sendy Webhooks
 ==============
 
@@ -36,9 +35,3 @@ your Sendy data:
 * spam complaint
 
 Basically, I reproduced what is available through Amazon SNS.
-=======
-sendy-webhooks
-==============
-
-Sendy Webhooks
->>>>>>> df2c9c1a6d1d0884701c6cf698a0fe3e7ca57400
