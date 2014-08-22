@@ -1,7 +1,7 @@
 Sendy Webhooks
 ==============
 
-#About
+##About
 This project will allow you to setup webhooks for when using services other than Amazon SES with Sendy.
 
 Copy these files into a **webhooks** folder in your Sendy root (or wherever you would like them to reside) and then edit
@@ -15,17 +15,17 @@ overwriting them. It will work just fine either way.
 
 Once you have done that, then you can just point your mailing service's webhooks API call to the appropriate service.
 
-#Supported Services
+##Supported Services
 Currently, I have implemented the following services:
 
 * [Mandrill](http://www.mandrill.com) - no further customization required
 * [CritSend](http://www.critsend.com) - you will need to add your CritSend API key to config.php
 
-#Future Services
+##Future Services
 If you have any future services that you'd like to include, just let me know and point me to the documentation, or else
 use any of the existing files as a template and push the update to this repository. I will be adding more.
 
-#Supported Webhooks
+##Supported Webhooks
 I have been adding in debugging for each of the supported features provided by individual APIs, and all of them will be
 logged into the debuglog (if debugging is turned on). However, only the following functions will actually interact with
 your Sendy data:
