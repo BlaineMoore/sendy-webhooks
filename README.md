@@ -34,4 +34,4 @@ your Sendy data:
 * soft bounce
 * spam complaint
 
-Basically, I reproduced what is available through Amazon SNS.
+Basically, I reproduced what is available through Amazon SES.
