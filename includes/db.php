@@ -4,7 +4,6 @@
  * Description: This file includes all database interactions and connections.
  * Version: 0.1
  * Contributors:
- *      Mandrill API    http://www.critsend.com/documentation/api/event/
  *      Blaine Moore    http://blainemoore.com
  *
  * Currently handles:
