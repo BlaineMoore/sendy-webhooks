@@ -76,7 +76,7 @@
                 $bounce_soft = $row['bounce_soft'];
             } // while($row = mysqli_fetch_array($r2))
 
-            if($bounce_soft >= $bounce_limit)
+            if($bounce_soft >= $webhooks_bounce_limit)
             {
                 webhooks_hard_bounce($email, "--> Exceeded Soft Bounce Limit ($bounce_soft)");
             }  // if($bounce_soft >= 3)
