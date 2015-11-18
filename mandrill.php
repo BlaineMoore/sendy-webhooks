@@ -27,7 +27,7 @@ foreach($events as $event)
             case "send": event_send($event); break;
             case "deferral": webhooks_soft_bounce($event['msg']['email'], "deferral: " . $event['msg']['bounce_description']); break;
             case "hard_bounce": webhooks_hard_bounce($event['msg']['email'], $event['msg']['bounce_description']); break;
-            case "soft-bounce": webhooks_soft_bounce($event['msg']['email'], $event['msg']['bounce_description']); break;
+            case "soft_bounce": webhooks_soft_bounce($event['msg']['email'], $event['msg']['bounce_description']); break;
             case "open": event_open($event); break;
             case "click": event_click($event); break;
             case "spam": webhooks_spam_report($event['msg']['email']); break;
