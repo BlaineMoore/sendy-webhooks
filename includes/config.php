@@ -24,7 +24,7 @@
 
     // This needs to point to the Sendy /includes/config.php file
     // Only change this is you do not place the webhooks folder in the Sendy root folder
-    include_once("../../includes/config.php");
+    include_once(dirname(__FILE__)."/../../includes/config.php");
 
 //----------------------------------------------------------------------------------//
 
