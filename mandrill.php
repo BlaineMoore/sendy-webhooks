@@ -9,10 +9,30 @@
  *
  * Requirements:
  *      $webhooks_critsend_api_key must be set in config.php (Sendy's or Webhook's)
+ *      define('MANDRILL_WEBHOOK_SECRET', 'asdfASDFasdfASDF1234'); // obtained from Mandrill Webhook control panel
+ *      define('MANDRILL_WEBHOOK_URL', 'http://sendy_url/webhooks/mandrill.php');
  */
 
 include_once('includes/config.php');
 $webhooks_provider = "Mandrill";
+
+// Ensure Mandrill signature is present
+if ((!isset($_POST['mandrill_events'])) || (!isset($_SERVER['HTTP_X_MANDRILL_SIGNATURE']))) {
+   echo ("Invalid webhook or missing signature.\n");
+   exit;
+}
+
+// Verify Mandrill Webhook signature (optional; see requirements)
+if (!empty(MANDRILL_WEBHOOK_SECRET) && !empty(MANDRILL_WEBHOOK_URL)) {
+
+  $server_key = $_SERVER['HTTP_X_MANDRILL_SIGNATURE'];
+  $test_key = generateSignature(MANDRILL_WEBHOOK_SECRET, MANDRILL_WEBHOOK_URL, $_POST);
+
+  if ($test_key != $server_key) {
+    echo ("Invalid API signature.\n");
+    exit;
+  }
+}
 
 $HTTP_RAW_POST_DATA = @file_get_contents('php://input');
 $dec_url = urldecode($HTTP_RAW_POST_DATA);
@@ -61,3 +81,20 @@ foreach($events as $event)
     } // function event_send($event)
 
 //----------------------------------------------------------------------------------//
+
+
+//----------------------------------------------------------------------------------//
+//              MANDRILL SIGNATURE VERIFICATION
+//----------------------------------------------------------------------------------//
+
+    function generateSignature($secret, $url, $params) {
+    
+      $signed_data = $url;
+      ksort($params);
+      foreach ($params as $key => $value) {
+        $signed_data .= $key;
+        $signed_data .= $value;
+      }
+
+      return base64_encode(hash_hmac('sha1', $signed_data, $secret, true));
+    }
