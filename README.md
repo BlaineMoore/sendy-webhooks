@@ -20,6 +20,7 @@ Currently, I have implemented the following services:
 
 * [Mandrill](http://www.mandrill.com) - no further customization required
 * [CritSend](http://www.critsend.com) - you will need to add your CritSend API key to config.php
+* [Pepipost](http://www.pepipost.com) - no further customization required
 
 ##Future Services
 If you have any future services that you'd like to include, just let me know and point me to the documentation, or else
