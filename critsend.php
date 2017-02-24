@@ -18,9 +18,9 @@ $critsend_signature = $_SERVER["HTTP_X_CRITSEND_WEBHOOKS_SIGNATURE"];
 $json_payload = file_get_contents('php://input');
 
 # Check if payload is valid
-if($critsend_signature != hash_hmac("sha256", $json_payload, $critsend_webhooks_key)) {
+if($critsend_signature != hash_hmac("sha256", $json_payload, $webhooks_critsend_api_key)) {
     webhooks_debug(" == Invalid payload according to our webhooks key == ", true);
-} // if($critsend_signature != hash_hmac("sha256", $json_payload, $critsend_webhooks_key))
+} // if($critsend_signature != hash_hmac("sha256", $json_payload, $webhooks_critsend_api_key))
 	
 $events = json_decode($json_payload, true);
 foreach($events as $event)
