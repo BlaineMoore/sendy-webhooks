@@ -42,6 +42,8 @@
         $webhooks_debug_timezone = 'America/New_York'; // debug log will use this timezone
     if(!isset($webhooks_critsend_api_key))
         $webhooks_critsend_api_key = ""; // Only enter this if using Critsend
+    if(!isset($webhooks_mailgun_api_key))    //enter this if using mailgun
+        $webhooks_mailgun_api_key = "";
 
 //----------------------------------------------------------------------------------//
 
